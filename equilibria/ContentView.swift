@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject private var coordinator: StartedAppCoordinator
+    
     var body: some View {
+        Navbar(title: "", onBack: coordinator.pop)
+        Spacer()
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
@@ -16,5 +21,6 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        Spacer()
     }
 }

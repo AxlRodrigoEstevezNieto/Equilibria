@@ -17,7 +17,7 @@ struct equilibriaApp: App {
         WindowGroup {
             Group {
                 if !appStateManager.isStartComplete {
-                    StartAppVIew()
+                    StartAppCoordinatorView()
                 } else if appStateManager.isStartComplete && !authManger.isAuthenticate {
                     //Login View
                 } else if appStateManager.isStartComplete && authManger.isAuthenticate {

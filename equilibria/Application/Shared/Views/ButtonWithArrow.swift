@@ -9,25 +9,37 @@ import SwiftUI
 
 struct ButtonWithArrow: View {
     
-    var action: () -> Void
     var title: String? = ""
     var backgroundColor: Color = .background
     var fontColor: Color = .black
     var geometryProxy: GeometryProxy?
-    var arrowImageName: String
+    let imageType: CustomImageType
+    var action: () -> Void
     
     var body: some View {
         Button {
             action()
         } label: {
-            HStack {
+            HStack (spacing: 16) {
                 Text(title ?? "")
                     .font(.headline)
                     .fontWeight(.regular)
                     .foregroundStyle(.white)
-                Image(arrowImageName)
-                    .resizable().foregroundStyle(.white)
-                    .frame(width: 15, height: 15)
+                switch imageType {
+                case .asset(let name):
+                    Image(name)
+                        .resizable().foregroundStyle(.white)
+                        .frame(width: 15, height: 15)
+                        .padding(.horizontal, 16)
+                case .system(let name):
+                    Image(systemName: name)
+                        .resizable().foregroundStyle(.white)
+                        .frame(width: 15, height: 15)
+                }
+                
+            }
+            .onTapGesture {
+                action()
             }
         }
         .frame(width: frameWidth, height: frameHeight)

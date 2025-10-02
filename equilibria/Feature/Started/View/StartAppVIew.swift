@@ -9,13 +9,12 @@ import SwiftUI
 
 struct StartAppVIew: View {
     
+    @EnvironmentObject private var coordinator: StartedAppCoordinator
+    
     var body: some View {
-        
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                
                 ScrollView {
-                    
                     VStack (spacing: 0) {
                         
                         Text("¡Te damos la bienvenida!")
@@ -36,23 +35,23 @@ struct StartAppVIew: View {
                             .padding(.top, geometry.size.height * 0.1)
                         
                         ButtonWithArrow(
-                            action: {
-                                
-                            },
                             title: "Comenzar",
                             backgroundColor: .titleApp,
                             fontColor: .black,
                             geometryProxy: geometry,
-                            arrowImageName: ""
+                            imageType: .system(name: "play.fill"),
+                            action: {
+                                coordinator.navigate(to: .loginStep)
+                            },
+                            
                         )
                         .padding(.horizontal, 16)
                         .padding(.top, geometry.size.height * 0.1)
-                        
+
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 }
                 .scrollIndicators(.hidden)
-                
             }
             .background(
                 Color("background")
