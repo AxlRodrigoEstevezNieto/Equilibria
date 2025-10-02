@@ -11,7 +11,25 @@ import SwiftUI
 enum AppFonts {
     
     static func bitcountSingleInk(size: CGFloat) -> Font {
-            .custom("BitcountSingleInk-VariableFont_CRSV,ELSH,ELXP,SZP1,SZP2,XPN1,XPN2,YPN1,YPN2,slnt,wght", size: size)
-        }
+        .custom("BitcountSingleInk-Regular", size: size)
+    }
+    
+    static func bitcountSingleInkBold(size: CGFloat) -> Font {
+        .custom("BitcountSingleInk-Regular_Bold", size: size)
+    }
+    
+    static func montserrat(size: CGFloat) -> Font {
+        .custom("Montserrat-Regular", size: size)
+    }
+    
+    static func montserratMedium(size: CGFloat) -> Font {
+        .custom("Montserrat-Medium", size: size)
+    }
+    
+    static func montserratSemiBold(size: CGFloat) -> Font {
+        .custom("Montserrat-SemiBold", size: size)
+    }
+    
+    
     
 }

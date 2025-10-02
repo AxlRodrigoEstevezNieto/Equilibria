@@ -9,9 +9,21 @@ import SwiftUI
 
 @main
 struct equilibriaApp: App {
+    
+    @StateObject private var authManger = AuthManager.shared
+    @StateObject private var appStateManager = AppStateManger.shared
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Group {
+                if !appStateManager.isStartComplete {
+                    StartAppVIew()
+                } else if appStateManager.isStartComplete && !authManger.isAuthenticate {
+                    //Login View
+                } else if appStateManager.isStartComplete && authManger.isAuthenticate {
+                    //HomeView
+                }
+            }
         }
     }
 }
