@@ -30,6 +30,16 @@ enum AppFonts {
         .custom("Montserrat-SemiBold", size: size)
     }
     
+    static func montserratBold(size: CGFloat) -> Font {
+        .custom("Montserrat-Bold", size: size)
+    }
     
+    static func chillax(size: CGFloat) -> Font {
+        .custom("ChillaxVariable-Bold_Medium", size: size)
+    }
+    
+    static func chillaxBold(size: CGFloat) -> Font {
+        .custom("ChillaxVariable-Bold", size: size)
+    }
     
 }
