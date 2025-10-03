@@ -1,5 +1,5 @@
 //
-//  ButtonWithArrow.swift
+//  ButtonApp.swift
 //  equilibria
 //
 //  Created by Axl Rodrigo Estevez NIeto on 02/10/25.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ButtonWithArrow: View {
+struct ButtonApp: View {
     
     var title: String? = ""
     var backgroundColor: Color = .background
     var fontColor: Color = .black
     var geometryProxy: GeometryProxy?
-    let imageType: CustomImageType
     var action: () -> Void
+    var fontCustom: Font? = .headline
     
     var body: some View {
         Button {
@@ -22,21 +22,9 @@ struct ButtonWithArrow: View {
         } label: {
             HStack (spacing: 16) {
                 Text(title ?? "")
-                    .font(.headline)
+                    .font(fontCustom)
                     .fontWeight(.regular)
-                    .foregroundStyle(.white)
-                switch imageType {
-                case .asset(let name):
-                    Image(name)
-                        .resizable().foregroundStyle(.white)
-                        .frame(width: 15, height: 15)
-                        .padding(.horizontal, 16)
-                case .system(let name):
-                    Image(systemName: name)
-                        .resizable().foregroundStyle(.white)
-                        .frame(width: 15, height: 15)
-                }
-                
+                    .foregroundStyle(fontColor)
             }
             .onTapGesture {
                 action()
