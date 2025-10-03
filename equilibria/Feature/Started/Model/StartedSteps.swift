@@ -9,6 +9,7 @@ import SwiftUI
 
 enum StartedSteps: Hashable {
     case startStep
+    case optionsStartStep
     case loginStep
     case singUpStep
 }

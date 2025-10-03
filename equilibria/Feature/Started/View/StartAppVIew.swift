@@ -19,7 +19,7 @@ struct StartAppVIew: View {
                         
                         Text("¡Te damos la bienvenida!")
                             .multilineTextAlignment(.center)
-                            .font(AppFonts.montserratSemiBold(size: 25))
+                            .font(AppFonts.chillaxBold(size: 25))
                             .foregroundStyle(Color("title-app"))
                         
                         Image("icon-app")
@@ -34,14 +34,16 @@ struct StartAppVIew: View {
                             .foregroundStyle(.secondary)
                             .padding(.top, geometry.size.height * 0.1)
                         
-                        ButtonWithArrow(
+                        ButtonAppImage(
                             title: "Comenzar",
                             backgroundColor: .titleApp,
-                            fontColor: .black,
+                            fontColor: .white,
+                            fontColorImage: .white,
                             geometryProxy: geometry,
                             imageType: .system(name: "play.fill"),
+                            fontCustom: AppFonts.chillaxBold(size: 18),
                             action: {
-                                coordinator.navigate(to: .loginStep)
+                                coordinator.navigate(to: .optionsStartStep)
                             },
                             
                         )
@@ -56,6 +58,14 @@ struct StartAppVIew: View {
             .background(
                 Color("background")
             )
+        }
+        .onAppear {
+            for family in UIFont.familyNames {
+                print("Family: \(family)")
+                for name in UIFont.fontNames(forFamilyName: family) {
+                    print("  \(name)")
+                }
+            }
         }
     }
 }

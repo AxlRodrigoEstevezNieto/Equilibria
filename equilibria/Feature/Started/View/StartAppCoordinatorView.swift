@@ -20,11 +20,14 @@ struct StartAppCoordinatorView: View {
                     case .startStep:
                         StartAppVIew()
                             .toolbar(.hidden)
-                    case .loginStep:
+                    case .optionsStartStep:
                         OptionsForStarView()
                             .toolbar(.hidden)
+                    case .loginStep:
+                        LoginView()
+                            .toolbar(.hidden)
                     case .singUpStep:
-                        StartAppVIew()
+                        ContentView()
                             .toolbar(.hidden)
                     }
                 }

@@ -12,7 +12,9 @@ struct ContentView: View {
     @EnvironmentObject private var coordinator: StartedAppCoordinator
     
     var body: some View {
-        Navbar(title: "", onBack: coordinator.pop)
+        Navbar(labelText: "", colorBackbutton: .titleApp) {
+            coordinator.pop()
+        }
         Spacer()
         VStack {
             Image(systemName: "globe")
