@@ -8,26 +8,34 @@
 import SwiftUI
 
 struct Navbar: View {
-    var title: String
-    var onBack: (() -> Void)?
+    private var labelText: String
+    private var colorBackbutton: Color?
+    private var backAction: () -> Void
+    
+    init(labelText: String, colorBackbutton: Color? = nil, backAction: @escaping () -> Void = { }) {
+        self.labelText = labelText
+        self.backAction = backAction
+        self.colorBackbutton = colorBackbutton
+    }
+    
     var body: some View {
         ZStack {
             HStack {
                 Button {
-                    onBack?()
+                    backAction()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundStyle(.titleApp)
-                        .font(.system(size: 25, weight: .medium))
+                        .foregroundStyle(colorBackbutton ?? .blue)
+                        .font(.system(size: 22, weight: .medium))
                 }
                 Spacer()
             }
-            Text(title)
+            Text(labelText)
                 .font(.headline)
                 .bold()
         }
         .ignoresSafeArea(.all)
         .padding()
-        .background(Color("background"))
+        .background(Color.white)
     }
 }
