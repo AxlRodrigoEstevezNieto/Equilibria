@@ -34,8 +34,8 @@ struct Navbar: View {
                 .font(.headline)
                 .bold()
         }
-        .ignoresSafeArea(.all)
         .padding()
-        .background(Color.white)
+        .background(Color(.background))
+        .ignoresSafeArea(edges: .bottom)
     }
 }

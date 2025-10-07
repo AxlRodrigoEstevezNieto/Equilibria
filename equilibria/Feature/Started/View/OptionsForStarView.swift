@@ -16,17 +16,18 @@ struct OptionsForStarView: View {
             coordinator.pop()
         }
         GeometryReader { geometry in
-            VStack {
+            VStack(spacing: 0) {
                 ScrollView {
                     VStack {
                         Image("start-icon")
                             .resizable()
                             .frame(width: geometry.size.width * 0.6, height: geometry.size.height * 0.4)
+                            .padding(.top, 16)
                         
                         Text("Para comenzar, inicia sesión si ya tienes una cuenta, o regístrate para crear una nueva y empezar a organizar nuestras deudas.")
                             .multilineTextAlignment(.center)
                             .font(AppFonts.chillaxBold(size: 16))
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.blackMedium)
                             .padding(.top, geometry.size.height * 0.1)
                             .padding(.horizontal, 16)
                         
@@ -57,11 +58,14 @@ struct OptionsForStarView: View {
                         .padding(.top, 16)
                         
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    
                 }
                 .scrollIndicators(.hidden)
             }
+            .frame(width: geometry.size.width, height: geometry.size.height)
             .background(Color("background"))
+            .ignoresSafeArea(edges: .bottom)
         }
+        .padding(.top, -16)
     }
 }

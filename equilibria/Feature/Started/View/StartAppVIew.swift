@@ -31,7 +31,7 @@ struct StartAppVIew: View {
                         Text("Divide+, Tú y Yo $")
                             .multilineTextAlignment(.center)
                             .font(AppFonts.bitcountSingleInkBold(size: 16))
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.blackMedium)
                             .padding(.top, geometry.size.height * 0.1)
                         
                         ButtonAppImage(
