@@ -24,8 +24,8 @@ struct ButtonAppImage: View {
         } label: {
             HStack (spacing: 0) {
                 Text(title ?? "")
+                    .multilineTextAlignment(.center)
                     .font(fontCustom)
-                    .fontWeight(.regular)
                     .foregroundStyle(fontColor)
                     .padding(.horizontal, 16)
                 
